@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/boletim-escolar/styles/login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap" rel="stylesheet">
+    <title>Boletim Escolar</title>
+</head>
+
+<body>
+    <main id="areaLogin">
+        <h1>Boletim Escolar</h1>
+        <h3>Login</h3>
+        <form action="" method="get">
+            <input type="email" name="" id="InputUser" placeholder="E-mail">
+            <input type="password" name="" id="InputPassword" placeholder="Senha">
+        </form>
+
+        <button id="entrar">Entrar</button>
+        <p id="cadastre">Aluno novo? <strong>Cadastre-se</strong></p>
+    </main>
+    <section id="img-background">
+        <img src="/boletim-escolar/Images/undraw_exams_g4ow.svg" >
+
+    </section>
+
+    <span class="registerArea">
+
+        <h1>Cadastre-se</h1>
+        <form action="" method="get">
+            <input type="email" name="" id="regUserInput" placeholder="E-mail">
+            <input type="password" name="" id="regPassInput" placeholder="Senha">
+        </form>
+
+        <button id="cadastrar">Cadastrar</button>
+        <p>Já tem cadastro? clique em "voltar" e faça o login</p>
+        <button id="voltar">Voltar</button>
+    </span>
+
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-auth.js"></script>
+    
+    <script defer src="/boletim-escolar/js/firebaseConfig.js"></script>
+    <script src="/boletim-escolar/js/login.js"></script>
+</body>
+
+</html>
