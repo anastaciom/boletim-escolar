@@ -17,31 +17,194 @@
         <h1>Escola de São Paulo</h1>
 
         <div id="area-user">
-            <h3 id="user-name">nome do usuario</h3>
+            <h3 id="user-name"></h3>
             <img src="/boletim-escolar/Images/exitIcon.png" id="exit">
         </div>
         <span class="message-exit">
-            <h4>Sair?</h4><img src="/boletim-escolar/Images/closeIcon.png">
+            <h5>Sair?</h5><img src="/boletim-escolar/Images/closeIcon.png">
         </span>
     </header>
 
     <main>
         <h2>Area do aluno</h2>
-        <div id="container">
+        <div id="initialData">
+            <div id="turma">
+                <h3>Turma</h3>
+                <h4>3ºA</h4>
+            </div>
+            <div id="name">
+                <h3></h3>
+            </div>
+            <div id="studentPhoto">
+                <img src="" alt="" srcset="">
+            </div>
+        </div>
+        <div id="studentPerformance">
+            <div id="media">
+                <h4>Notas</h4>
+                <table class="table">
+                    <tr>
+                        <th></th>
+                        <th>1º</th>
+                        <th>2º</th>
+                        <th>3º</th>
+                        <th>4º</th>
+                    </tr>
+                    <tr>
+                        <th>Matematica</th>
+                        <td>4.0</td>
+                        <td>7.0</td>
+                        <td>7.0</td>
+                        <td>4.0</td>
+                    </tr>
+                    <tr>
+                        <th>Quimica</th>
+                        <td>4.0</td>
+                        <td>7.0</td>
+                        <td>7.0</td>
+                        <td>4.0</td>
+                    </tr>
+                    <tr>
+                        <th>Física</th>
+                        <td>4.0</td>
+                        <td>7.0</td>
+                        <td>7.0</td>
+                        <td>4.0</td>
+                    </tr>
+                    <tr>
+                        <th>Inglês</th>
+                        <td>4.0</td>
+                        <td>7.0</td>
+                        <td>7.0</td>
+                        <td>4.0</td>
+                    </tr>
+                    <tr>
+                        <th>Biologia</th>
+                        <td>4.0</td>
+                        <td>7.0</td>
+                        <td>7.0</td>
+                        <td>4.0</td>
+                    </tr>
+                    <tr>
+                        <th>Artes</th>
+                        <td>4.0</td>
+                        <td>7.0</td>
+                        <td>7.0</td>
+                        <td>4.0</td>
+                    </tr>
+                    <tr>
+                        <th>Ed.Física</th>
+                        <td>4.0</td>
+                        <td>7.0</td>
+                        <td>7.0</td>
+                        <td>4.0</td>
+                    </tr>
+                    <tr>
+                        <th>Geografia</th>
+                        <td>4.0</td>
+                        <td>7.0</td>
+                        <td>7.0</td>
+                        <td>4.0</td>
+                    </tr>
+                    <tr>
+                        <th>História</th>
+                        <td>4.0</td>
+                        <td>7.0</td>
+                        <td>7.0</td>
+                        <td>4.0</td>
+                    </tr>
+                </table>
+            </div>
+            <div id="absences">
+                <h4>Faltas</h4>
+                <table class="table">
+                    <tr>
+                        <th>Dia</th>
+                        <th>Motivo</th>
 
+                    </tr>
+                    <tr>
+                        <th>20/07/20</th>
+                        <td>Sem motivo</td>
+                    </tr>
+                    <tr>
+                        <th>20/07/20</th>
+                        <td>Foi ao medico</td>
+                    </tr>
+                    <tr>
+                        <th>20/07/20</th>
+                        <td>sem motivo</td>
+                    </tr>
+                    <tr>
+                        <th>20/07/20</th>
+                        <td>Viajou</td>
+                    </tr>
+                    <tr>
+                        <th>20/07/20</th>
+                        <td>Foi ao dentista</td>
+                    </tr>
+                    <tr>
+                        <th>20/07/20</th>
+                        <td>Sem motivo</td>
+                    </tr>
+                    <tr>
+                        <th>20/07/20</th>
+                        <td>Sem motivo</td>
+                    </tr>
+                    <tr>
+                        <th>20/07/20</th>
+                        <td>Estava passando mal</td>
+                    </tr>
+                </table>
+            </div>
+            <div id="occurrences">
+                <h4>Ocorrências</h4>
+                <table class="table">
+                    <tr>
+                        <th>Dia</th>
+                        <th>Motivo</th>
+
+                    </tr>
+                    <tr>
+                        <th>20/07/20</th>
+                        <td>Falou alto na sala</td>
+                    </tr>
+                    <tr>
+                        <th>20/07/20</th>
+                        <td>Advertencia de 3 dias pois cabulou aula de Matematica</td>
+                    </tr>
+                   
+                </table>
+            </div>
+            <div id="finalStatistics">
+                <h4>Média de desempenho</h4>
+                <div id="gradeAverage">
+                    <img src="" alt="">
+                </div>
+                <div id="absenceAverage">
+                    <img src="" alt="">
+                </div>
+                <div id="participation in classes">
+                    <img src="" alt="">
+                </div>
+            </div>
+        </div>
+        <div id="finalResult">
+            <h3>Resultado final: APROVADO!!</h3>
         </div>
     </main>
 
     <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-auth.js"></script>
-    
-    <script src="/boletim-escolar/js/firebaseConfig.js"></script>
-    <script src="/boletim-escolar/js/studentArea.js"></script>
-    
-    
-    
+
+    <script defer src="/boletim-escolar/js/firebaseConfig.js"></script>
+
+
+    <script defer src="/boletim-escolar/js/studentArea.js"></script>
+
    
+
 
 </body>
 
