@@ -1,5 +1,7 @@
 const exit = document.querySelector('#exit')
-const boxName = document.querySelector('#user-name')
+const studentEmail = document.querySelector('#user-name')
+
+const studentName = document.querySelector('#name h3')
 
 exit.addEventListener('click', () => {
   var boxMessage = document.querySelector('.message-exit')
@@ -27,7 +29,14 @@ function verifyUser(){
       console.log('Não exite usuario')
     } else {
       console.log('logado')
-          boxName.textContent = user.email
+          let uid= user.uid
+
+          db.collection('Alunos').doc(uid).get().then((doc=>{
+            studentEmail.textContent = (doc.data().email)
+            studentName.textContent = (doc.data().nome)
+          })).catch(err=>{
+            console.log(err)
+          })
     }
   }); 
     
