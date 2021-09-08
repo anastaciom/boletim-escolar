@@ -1,7 +1,5 @@
 const exit = document.querySelector('#exit')
-const studentEmail = document.querySelector('#user-name')
 
-const studentName = document.querySelector('#name h3')
 
 exit.addEventListener('click', () => {
   var boxMessage = document.querySelector('.message-exit')
@@ -32,8 +30,8 @@ function verifyUser(){
           let uid= user.uid
 
           db.collection('Alunos').doc(uid).get().then((doc=>{
-            studentEmail.textContent = (doc.data().email)
-            studentName.textContent = (doc.data().nome)
+            media(doc)
+            
           })).catch(err=>{
             console.log(err)
           })
