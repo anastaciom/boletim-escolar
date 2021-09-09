@@ -16,9 +16,9 @@
     <main id="areaLogin">
         <h1>Boletim Escolar</h1>
         <h3>Login</h3>
-        <form action="" method="get">
-            <input type="email" name="" id="InputUser" placeholder="E-mail">
-            <input type="password" name="" id="InputPassword" placeholder="Senha">
+        <form method="POST">
+            <input type="email" id="InputUser" placeholder="E-mail" maxlength="100">
+            <input type="password" id="InputPassword" placeholder="Senha" minlength="6">
         </form>
 
         <button id="entrar">Entrar</button>
@@ -29,16 +29,32 @@
 
     </section>
 
+    <div id="loginMsgError">
+        <h4>Preencha os campos com os dados corretos</h4>
+        <button id="closeMsg">OK</button>
+    </div>
+
+
     <span class="registerArea">
 
         <h1>Cadastre-se</h1>
-        <form action="" method="GET">
-            <input type="email" name="" id="regUserInput" placeholder="E-mail">
-            <input type="password" name="" id="regPassInput" placeholder="Senha">
+        <form method="POST">
+            <input type="text" id="regNameInput" placeholder="Nome do aluno" minlength="2">
+            <small id="regMessageName" class="msgError">Exemplo: "José Santos"</small>
+
+            <input type="email" id="regUserInput" placeholder="E-mail" maxlength="100">
+            <small id="regMessageEmail" class="msgError">Exemplo: "abc@email.com"</small>
+
+
+            <input type="password" id="regPassInput" placeholder="Senha" minlength="6">
+            <small id="regMessagePass" class="msgError">A senha deverá ter pelo menos 6 caracteres</small>
+
+            <input type="text" id="regClassInput" placeholder="Turma" maxlength="3" minlength="2">
+            <small id="regMessageClass" class="msgError">Exemplo: "3ºA" ou "3A"</small>
         </form>
 
         <button id="cadastrar">Cadastrar</button>
-        <p>Já tem cadastro? clique em "voltar" e faça o login</p>
+        <p>Já é aluno? clique em "VOLTAR" e faça o login</p>
         <button id="voltar">Voltar</button>
     </span>
 
@@ -50,7 +66,7 @@
 
     <script defer src="/boletim-escolar/js/login.js"></script>
 
-    
+
 </body>
 
 </html>

@@ -1,12 +1,26 @@
 const inputUser = document.querySelector('#InputUser')
 const inputPass = document.querySelector('#InputPassword')
+const loginMsgError = document.querySelector('#loginMsgError')
+const closeMsgError = document.querySelector('#closeMsg')
+
+const registerName = document.querySelector('#regNameInput')
+const registerClass = document.querySelector('#regClassInput')
 const registerUser = document.querySelector('#regUserInput')
 const registerPass = document.querySelector('#regPassInput')
+
+
+const regMessageName = document.querySelector('#regMessageName')
+const regMessageEmail = document.querySelector('#regMessageEmail')
+const regMessagePass = document.querySelector('#regMessagePass')
+const regMessageClass = document.querySelector('#regMessageClass')
+
+
+
 const boxCadastrar = document.querySelector('#cadastre strong')
 const buttonCadastrar = document.querySelector('#cadastrar')
+
 const buttonLogin = document.querySelector('#entrar')
 const buttonBack = document.querySelector('#voltar')
-
 
 
 boxCadastrar.addEventListener('click', () => {
@@ -28,15 +42,19 @@ boxCadastrar.addEventListener('click', () => {
 })
 
 
+
 buttonCadastrar.addEventListener('click', () => {
+
+  checkedRegister()
 
   auth.createUserWithEmailAndPassword(registerUser.value, registerPass.value)
     .then((user) => {
+
       alert('O usuário ' + user.user.email + ' foi registrado, CLIQUE em voltar e faça o LOGIN')
       db.collection('Alunos').doc(user.user.uid).set({
         email: user.user.email,
-        turma: '',
-        nome: '',
+        turma: registerClass.value,
+        nome: registerName.value,
         notas: {
           bimestre1: {
             matematica: Number(),
@@ -88,11 +106,12 @@ buttonCadastrar.addEventListener('click', () => {
           }
         }
 
-      }).then(() => { console.log('ok doc registrado') }).catch(() => { console.log('doc recusado') })
+      })
     })
     .catch(() => {
 
-      alert('Não foi possivel registrar esse usuário')
+      alert('OPSS!! Não foi possivel registrar esse usuário')
+
     });
 
 
@@ -102,6 +121,7 @@ buttonCadastrar.addEventListener('click', () => {
 
 buttonLogin.addEventListener('click', () => {
 
+
   auth.setPersistence(firebase.auth.Auth.Persistence.SESSION)
     .then(() => {
       auth.signInWithEmailAndPassword(inputUser.value, inputPass.value)
@@ -110,7 +130,10 @@ buttonLogin.addEventListener('click', () => {
           window.location.href = '/boletim-escolar/pages/studentArea.html';
         })
         .catch(() => {
-          alert('Preencha os dados de maneira correta!!!')
+          loginMsgError.style.display = 'flex'
+          closeMsgError.addEventListener('click', () => {
+            loginMsgError.style.display = 'none'
+          })
         });
     })
     .catch((err) => {
@@ -120,4 +143,37 @@ buttonLogin.addEventListener('click', () => {
 })
 
 
+
+function checkedRegister() {
+
+  if (registerName.value === '') {
+    regMessageName.innerHTML = `<small style="color: red;">${'Preencha o campo "Nome do aluno"'}</small>`
+
+  } else {
+    regMessageName.innerHTML = `<small style="color: green;">${'Preenchido'}</small>`
+  }
+
+  if (registerUser.value === '') {
+
+    regMessageEmail.innerHTML = `<small style="color: red;">${'Preencha o campo "E-mail".Exemplo: "abc@gmail.com"'}</small>`
+
+  } else {
+    regMessageEmail.innerHTML = `<small style="color: green;">${'Preenchido'}</small>`
+  }
+
+  if (registerPass.value === '') {
+    regMessagePass.innerHTML = `<small style="color: red;">${'Preencha o campo "Senha".A senha deverá ter pelo menos 6 caracteres'}</small>`
+
+  } else {
+    regMessagePass.innerHTML = `<small style="color: green;">${'Preenchido'}</small>`
+  }
+
+  if (registerClass.value === '') {
+    regMessageClass.innerHTML = `<small style="color: red;">${'Preencha o campo "Turma".Exemplo: "3ºA" ou "3A"'}</small>`
+
+  } else {
+    regMessageClass.innerHTML = `<small style="color: green;">${'Preenchido'}</small>`
+  }
+
+}
 
