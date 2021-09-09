@@ -30,6 +30,7 @@ boxCadastrar.addEventListener('click', () => {
   if (registerArea.classList.contains('activeRegisterArea')) {
     document.querySelector('#areaLogin').style.display = 'none'
     document.querySelector('#img-background').style.display = 'none'
+    document.querySelector('#img-bg-register').style.display = 'initial'
   } else {
     document.querySelector('#areaLogin').style.display = 'flex'
     document.querySelector('#img-background').style.display = 'initial'
@@ -38,6 +39,7 @@ boxCadastrar.addEventListener('click', () => {
     registerArea.classList.remove('activeRegisterArea')
     document.querySelector('#areaLogin').style.display = 'flex'
     document.querySelector('#img-background').style.display = 'initial'
+    document.querySelector('#img-bg-register').style.display = 'none'
   })
 })
 
