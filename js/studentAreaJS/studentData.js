@@ -1,6 +1,5 @@
-
 function media(doc) {
-    const turma = document.querySelector('#turma h4')
+    const turma = document.querySelector('#turma h3')
     const studentEmail = document.querySelector('#user-name')
     const studentName = document.querySelector('#name h3')
 
