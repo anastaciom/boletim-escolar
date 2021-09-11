@@ -128,8 +128,13 @@ buttonLogin.addEventListener('click', () => {
     .then(() => {
       auth.signInWithEmailAndPassword(inputUser.value, inputPass.value)
         .then((user) => {
-          alert('Seja bem vindo!! ' + user.user.email)
+          if (user.user.uid == 'V9ay11XWwtaQIal85VqXNYqy1aT2'){
+            alert('Seja bem vindo PROFESSOR!!')
+            window.location.href = '/boletim-escolar/pages/teacherArea.html';
+          }else{
+          alert('Seja bem vindo aluno!! ' + user.user.email)
           window.location.href = '/boletim-escolar/pages/studentArea.html';
+        }
         })
         .catch(() => {
           loginMsgError.style.display = 'flex'

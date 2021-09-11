@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Area do aluno</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="/boletim-escolar/Images/icon-page.png" type="image/x-icon">
-    <link rel="stylesheet" href="/boletim-escolar/styles/studentArea.css">
+    <link rel="stylesheet" href="/boletim-escolar/styles/teacherArea.css">
+    <title>Area do Professor</title>
 </head>
 
 <body>
@@ -26,11 +26,41 @@
         </span>
     </header>
 
-    <main>
-        <h2>Area do aluno</h2>
+    <section>
+        <h2>Area do Professor</h2>
 
         <input type="checkbox" name="theme" id="switch">
         <label for="switch"></label>
+    </section>
+
+    <main>
+        <form>
+            <input type="search" name="" id="" placeholder="Nome do aluno">
+            <input type="search" name="" id="" placeholder="Turma">
+        </form>
+        <button>Buscar</button>
+        <button> qunado buscar ai carrega esse botao com a opcao de Alterar Dados e aparecera uma div para
+            alterar</button>
+
+        <div>
+            <h2>NOTAS</h2>
+            <h3>Matéria</h3><input type="search" name="" id=""><input type="number" name="" id=""><button>Adicionar
+                nota</button>
+
+            <div>
+                <h2>Faltas</h2>
+                <input type="date" name="" id=""><input type="text">
+                <div>Adicionar Falta</div>
+            </div>
+
+            <div>
+                <h2>Ocorrências</h2>
+                <input type="date" name="" id=""><input type="text">
+                <div>Adicionar Ocorrências</div>
+            </div>
+        </div>
+
+
 
         <div id="initialData">
             <div id="turma">
@@ -230,18 +260,16 @@
         </div>
     </main>
 
+
     <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-auth.js"></script>
 
     <script defer src="/boletim-escolar/js/globalJS/firebaseConfig.js"></script>
     <script defer src="/boletim-escolar/js/globalJS/pageFeatures.js"></script>
-    <script defer src="/boletim-escolar/js/studentAreaJS/studentData.js"></script>
-    <script defer src="/boletim-escolar/js//studentAreaJS/studentArea.js"></script>
+    <script defer src="/boletim-escolar/js/teacherAreaJS/teacherArea.js"></script>
    
-
-
-
+    
 
 </body>
 
