@@ -176,7 +176,7 @@ function checkedRegister() {
   }
 
   if (registerClass.value === '') {
-    regMessageClass.innerHTML = `<small style="color: red;">${'Preencha o campo "Turma".Exemplo: "3ºA" ou "3A"'}</small>`
+    regMessageClass.innerHTML = `<small style="color: red;">${'Preencha o campo "Turma".Exemplo: "3ºA"'}</small>`
 
   } else {
     regMessageClass.innerHTML = `<small style="color: green;">${'Preenchido'}</small>`

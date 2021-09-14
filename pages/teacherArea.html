@@ -33,39 +33,51 @@
             <h2>Area do Professor</h2>
             <div id="editAndSearch">
                 <form>
-                    <input type="search" name="" id="" placeholder="Nome do aluno">
+                    <input type="search" name="" id="searchStudentName" placeholder="Nome do aluno">
                     <label for="searchClass">Turma</label>
                     <select id="searchClass">
-                        <option value="none">--</option>
-                        <option value="turma3A">3ºA</option>
-                        <option value="turma2C">2ºC</option>
-                        <option value="turma3B">1ºB</option>
+                        <option disabled>Selecione a turma</option>
+                        <option value="3ºA">3ºA</option>
+                        <option value="2ºC">2ºC</option>
+                        <option value="1ºB">1ºB</option>
                     </select>
                 </form>
 
-                <button>Buscar</button>
+                <button id="btnSearchDatas">Buscar</button>
 
-                <button id="editDatas">Editar aluno</button>
+                <button id="btnEditDatas">Editar aluno</button>
 
                 <!-- qunado buscar ai carrega esse botao com a opcao de Alterar Dados e aparecera uma div
                 para
                 alterar -->
             </div>
             <div id="searchStudentDatas">
-                <div>
+                <div class="areaEditsDatas">
                     <h4>Notas</h4>
-                    <input type="search" name="" id="" placeholder="Matéria"><input type="number" name="" id=""
-                        placeholder="nota"><button>Editar nota</button>
+                    <select id="searchClass">
+                        <option disabled>Selecione a matéria</option>
+                        <option value="matematica">Matemática</option>
+                        <option value="quimica">Química</option>
+                        <option value="fisica">Física</option>
+                        <option value="ingles">Inglês</option>
+                        <option value="biologia">Biologia</option>
+                        <option value="artes">Artes</option>
+                        <option value="edFisica">Ed.Física</option>
+                        <option value="geografia">Geografia</option>
+                        <option value="portugues">Português</option>
+                        <option value="historia">História</option>
+                    </select>
+                    <input type="number" id="gradeStudent" placeholder="Nota"><button>Editar nota</button>
                 </div>
-                <div>
+                <div class="areaEditsDatas">
                     <h4>Faltas</h4>
                     <input type="date" name="" id="date"><input type="text" placeholder="Motivo">
                     <button>Adicionar Falta</button>
                 </div>
 
-                <div>
+                <div class="areaEditsDatas">
                     <h4>Ocorrências</h4>
-                    <input type="date" name="" id=""><input type="text" placeholder="motivo">
+                    <input type="date" name="" id=""><input type="text" placeholder="Motivo">
                     <button>Adicionar Ocorrências</button>
                 </div>
             </div>

@@ -175,6 +175,7 @@ main {
   justify-content: space-around;
   align-items: center;
   text-align: center;
+  flex-wrap: wrap;
 }
 
 #titleStudent{
@@ -285,6 +286,7 @@ background-color: var(--items-color);
   border-bottom: 5px solid #acacac;
   text-transform: uppercase;
   font-weight: bold;
+
 }
 
 #searchStudent input, button, select{
@@ -295,9 +297,9 @@ background-color: var(--items-color);
   margin-right: 2px;
   border-radius: 10px;
   font-weight: bold;
-  text-transform: uppercase;
   outline: none;
 }
+
 
 #searchStudent button, select{
   cursor: pointer;
@@ -317,12 +319,33 @@ background-color: var(--items-color);
   justify-content: center;
   align-items: center;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
 
 #searchStudentDatas{
- display: flex;
+  width: 100%;
+  height: auto;
+  display: none;
  justify-content:center;
  align-items: center;
- flex-direction: column;
+ flex-direction: row;
+ flex-wrap: wrap;
+}
+
+.areaEditsDatas{
+  padding-right: 10px;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.areaEditsDatas input, select, button{
+  margin-bottom: 5px;
+}
+
+#btnEditDatas{
+  display: none;
 }
