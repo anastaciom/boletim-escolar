@@ -105,7 +105,19 @@ buttonCadastrar.addEventListener('click', () => {
             geografia: Number(),
             portugues: Number(),
             historia: Number(),
-          }
+          },
+          faltas: [
+            {
+              dia: firebase.firestore.Timestamp.fromDate(new Date()),
+              motivo: ''
+            }
+          ],
+          ocorrencias: [
+            {
+              dia: firebase.firestore.Timestamp.fromDate(new Date()),
+              motivo: ''
+            }
+          ],
         }
 
       })
@@ -128,13 +140,13 @@ buttonLogin.addEventListener('click', () => {
     .then(() => {
       auth.signInWithEmailAndPassword(inputUser.value, inputPass.value)
         .then((user) => {
-          if (user.user.uid == 'V9ay11XWwtaQIal85VqXNYqy1aT2'){
+          if (user.user.uid == 'V9ay11XWwtaQIal85VqXNYqy1aT2') {
             alert('Seja bem vindo PROFESSOR!!')
             window.location.href = '/boletim-escolar/pages/teacherArea.html';
-          }else{
-          alert('Seja bem vindo aluno!! ' + user.user.email)
-          window.location.href = '/boletim-escolar/pages/studentArea.html';
-        }
+          } else {
+            alert('Seja bem vindo aluno!! ' + user.user.email)
+            window.location.href = '/boletim-escolar/pages/studentArea.html';
+          }
         })
         .catch(() => {
           loginMsgError.style.display = 'flex'
