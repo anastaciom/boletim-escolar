@@ -47,14 +47,18 @@
 
                 <button id="btnEditDatas">Editar aluno</button>
 
-                <!-- qunado buscar ai carrega esse botao com a opcao de Alterar Dados e aparecera uma div
-                para
-                alterar -->
+
             </div>
             <div id="searchStudentDatas">
                 <div class="areaEditsDatas">
                     <h4>Notas</h4>
-                    <select id="searchClass">
+                    <select id="bimonths">
+                        <option value="bimestre1">1ºBimestre</option>
+                        <option value="bimestre2">2ºBimestre</option>
+                        <option value="bimestre3">3ºBimestre</option>
+                        <option value="bimestre4">4ºBimestre</option>
+                    </select>
+                    <select id="searchGrade">
                         <option disabled>Selecione a matéria</option>
                         <option value="matematica">Matemática</option>
                         <option value="quimica">Química</option>
@@ -67,7 +71,7 @@
                         <option value="portugues">Português</option>
                         <option value="historia">História</option>
                     </select>
-                    <input type="number" id="gradeStudent" placeholder="Nota"><button>Editar nota</button>
+                    <input type="number" id="gradeStudent" placeholder="Nota" max="10" min="0"><button id="btnEditGrades">Editar nota</button>
                 </div>
                 <div class="areaEditsDatas">
                     <h4>Faltas</h4>
@@ -80,6 +84,8 @@
                     <input type="date" name="" id=""><input type="text" placeholder="Motivo">
                     <button>Adicionar Ocorrências</button>
                 </div>
+
+                <button id="saveEdits">Salvar alterações</button>
             </div>
         </div>
 

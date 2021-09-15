@@ -1,9 +1,9 @@
 const teacherName = document.querySelector('#teacher-name')
-
 const btnEditDatas = document.querySelector('#btnEditDatas')
 const searchStudentName = document.querySelector('#searchStudentName')
 const searchClass = document.querySelector('#searchClass')
-
+const btnEditGrades = document.querySelector('#btnEditGrades')
+const editAndSearch = document.querySelector('#editAndSearch input')
 function verifyTeacher() {
 
   auth.onAuthStateChanged((user) => {
@@ -18,41 +18,55 @@ function verifyTeacher() {
       }).catch(err => {
         console.log(err)
       })
+
+
+
       document.querySelector('#btnSearchDatas').addEventListener('click', () => {
         db.collection('Alunos').where('nome', '==', searchStudentName.value).where('turma', '==', searchClass.value).onSnapshot(snap => {
           snap.forEach(element => {
             media(element)
-            btnEditDatas.style.display ='initial'
-            btnEditDatas.addEventListener('click', ()=>{
+            btnEditDatas.style.display = 'initial'
+            btnEditDatas.addEventListener('click', () => {
               let searchStudentDatas = document.querySelector('#searchStudentDatas')
-              searchStudentDatas.style.display ='flex'
+              searchStudentDatas.style.display = 'flex';  
+              // editAndSearch.setAttribute('disabled', '')
+              // searchClass.setAttribute('disabled','')
+                          
             })
-            //botao editar perfil ficara visivel ficara visivel
 
-            //quando o botao for visivel ira liberar tudo de alterar, executado uma funcao que tera todos o botoes o que eles irao alterar
-
-            console.log(element.data().nome)
+          
+            
 
 
 
+            btnEditGrades.addEventListener('click', () => {
+              var bimonths = document.querySelector('#bimonths').value
+              var searchGrade = document.querySelector('#searchGrade').value
+              var gradeStudent = document.querySelector('#gradeStudent')
 
+              db.collection('Alunos').doc(element.id).set(
+                {
+                  notas: {
+                    [bimonths]: {
+                      [searchGrade]: Number(gradeStudent.value)
+                    }
+                  }
+                }, { merge: true }
+
+              ).catch(error => {
+                alert(error)
+              })
+
+              // let btnSaveEdits = document.querySelector('#saveEdits')
+              // btnEditDatas.addEventListener('click', () => {
+              //   location.reload()
+              // })
+            })
 
           })
         })
 
       })
-
-      // aqui ficara as opcoes de updates
-
-      // db.collection('Alunos').onSnapshot().update({
-      //   turma: '1A'
-      // }).then(()=>{
-      //   console.log('ok')
-      // }).catch(err=>{
-      //   console.log(err)
-      // })
-
-
     }
   });
 
