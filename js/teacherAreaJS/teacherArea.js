@@ -3,7 +3,8 @@ const btnEditDatas = document.querySelector('#btnEditDatas')
 const searchStudentName = document.querySelector('#searchStudentName')
 const searchClass = document.querySelector('#searchClass')
 const btnEditGrades = document.querySelector('#btnEditGrades')
-const editAndSearch = document.querySelector('#editAndSearch input')
+const btnSearchDatas = document.querySelector('#btnSearchDatas')
+const btnBack = document.querySelector('#btnBack')
 function verifyTeacher() {
 
   auth.onAuthStateChanged((user) => {
@@ -21,23 +22,26 @@ function verifyTeacher() {
 
 
 
-      document.querySelector('#btnSearchDatas').addEventListener('click', () => {
+      btnSearchDatas.addEventListener('click', () => {
         db.collection('Alunos').where('nome', '==', searchStudentName.value).where('turma', '==', searchClass.value).onSnapshot(snap => {
           snap.forEach(element => {
             media(element)
+            searchStudentName.setAttribute('disabled', '')
+            searchClass.setAttribute('disabled', '')
+            btnSearchDatas.style.display = 'none'
             btnEditDatas.style.display = 'initial'
+            btnBack.style.display = 'initial'
+            btnBack.addEventListener('click', () => {
+              location.reload('/boletim-escolar/pages/teacherArea.html')
+            })
             btnEditDatas.addEventListener('click', () => {
               let searchStudentDatas = document.querySelector('#searchStudentDatas')
-              searchStudentDatas.style.display = 'flex';  
-              // editAndSearch.setAttribute('disabled', '')
-              // searchClass.setAttribute('disabled','')
-                          
+              searchStudentDatas.style.display = 'flex';
+              btnEditDatas.setAttribute('disabled', '')
+              setTimeout(() => {
+                alert('Se caso queira buscar outros alunos, clique no botao de "Buscar outro aluno" e faça uma nova busca')
+              }, 1000);
             })
-
-          
-            
-
-
 
             btnEditGrades.addEventListener('click', () => {
               var bimonths = document.querySelector('#bimonths').value
@@ -53,14 +57,11 @@ function verifyTeacher() {
                   }
                 }, { merge: true }
 
-              ).catch(error => {
-                alert(error)
+              ).catch(() => {
+                alert('Não foi possivel alterar a nota')
               })
+              alert('Nota editada com sucesso!!')
 
-              // let btnSaveEdits = document.querySelector('#saveEdits')
-              // btnEditDatas.addEventListener('click', () => {
-              //   location.reload()
-              // })
             })
 
           })
