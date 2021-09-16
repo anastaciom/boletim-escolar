@@ -71,21 +71,21 @@
                         <option value="portugues">Português</option>
                         <option value="historia">História</option>
                     </select>
-                    <input type="number" id="gradeStudent" placeholder="Nota" max="10" min="0"><button id="btnEditGrades">Editar nota</button>
+                    <input type="number" id="gradeStudent" placeholder="Nota" max="10" min="0">
                 </div>
                 <div class="areaEditsDatas">
                     <h4>Faltas</h4>
-                    <input type="date" name="" id="date"><input type="text" placeholder="Motivo">
-                    <button>Adicionar Falta</button>
+                    <input type="date" name="" id="absencesDate">
+                    <input type="text" placeholder="Motivo" id="reasonAbsences">
                 </div>
 
                 <div class="areaEditsDatas">
                     <h4>Ocorrências</h4>
-                    <input type="date" name="" id=""><input type="text" placeholder="Motivo">
-                    <button>Adicionar Ocorrências</button>
+                    <input type="date" name="" id="occurrencesDate">
+                    <input type="text" placeholder="Motivo" id="reasonOccurrences">
+                    
                 </div>
-
-               
+                <button id="addEdits">Salvar Alterações</button>
             </div>
         </div>
 
@@ -218,6 +218,10 @@
 
                 </table>
             </div>
+
+                <div class="table">
+                    <ul id="lista">lista</ul>
+                </div>
             <div id="finalStatistics">
                 <h2>Média de desempenho</h2>
                 <div id="gradeAverage">

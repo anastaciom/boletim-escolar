@@ -2,9 +2,11 @@ const teacherName = document.querySelector('#teacher-name')
 const btnEditDatas = document.querySelector('#btnEditDatas')
 const searchStudentName = document.querySelector('#searchStudentName')
 const searchClass = document.querySelector('#searchClass')
-const btnEditGrades = document.querySelector('#btnEditGrades')
 const btnSearchDatas = document.querySelector('#btnSearchDatas')
 const btnBack = document.querySelector('#btnBack')
+
+const btnAddEdits = document.querySelector('#addEdits')
+
 function verifyTeacher() {
 
   auth.onAuthStateChanged((user) => {
@@ -26,44 +28,37 @@ function verifyTeacher() {
         db.collection('Alunos').where('nome', '==', searchStudentName.value).where('turma', '==', searchClass.value).onSnapshot(snap => {
           snap.forEach(element => {
             media(element)
-            searchStudentName.setAttribute('disabled', '')
-            searchClass.setAttribute('disabled', '')
-            btnSearchDatas.style.display = 'none'
-            btnEditDatas.style.display = 'initial'
-            btnBack.style.display = 'initial'
-            btnBack.addEventListener('click', () => {
-              location.reload('/boletim-escolar/pages/teacherArea.html')
-            })
-            btnEditDatas.addEventListener('click', () => {
-              let searchStudentDatas = document.querySelector('#searchStudentDatas')
-              searchStudentDatas.style.display = 'flex';
-              btnEditDatas.setAttribute('disabled', '')
-              setTimeout(() => {
-                alert('Se caso queira buscar outros alunos, clique no botao de "Buscar outro aluno" e faça uma nova busca')
-              }, 1000);
-            })
+            enablingAndDisablingBtns()
 
-            btnEditGrades.addEventListener('click', () => {
-              var bimonths = document.querySelector('#bimonths').value
-              var searchGrade = document.querySelector('#searchGrade').value
-              var gradeStudent = document.querySelector('#gradeStudent')
+            btnAddEdits.addEventListener('click', () => {
+              let bimonths = document.querySelector('#bimonths').value
+              let searchGrade = document.querySelector('#searchGrade').value
+              let gradeStudent = document.querySelector('#gradeStudent').value
+              let absencesDate = document.querySelector('#absencesDate').value
+              let reasonAbsences = document.querySelector('#reasonAbsences').value
+
 
               db.collection('Alunos').doc(element.id).set(
                 {
                   notas: {
                     [bimonths]: {
-                      [searchGrade]: Number(gradeStudent.value)
+                      [searchGrade]: Number(gradeStudent)
                     }
-                  }
-                }, { merge: true }
+                  },
 
+                  faltas: firebase.firestore.FieldValue.arrayUnion(
+                    {
+                      dia: firebase.firestore.Timestamp.fromDate(new Date(absencesDate)),
+                      motivo: reasonAbsences,
+                    }
+                  )
+                }, { merge: true }
               ).catch(() => {
                 alert('Não foi possivel alterar a nota')
               })
-              alert('Nota editada com sucesso!!')
-
             })
 
+            absencesData(element)
           })
         })
 
@@ -73,4 +68,28 @@ function verifyTeacher() {
 
 }
 verifyTeacher()
+
+
+function enablingAndDisablingBtns() {
+  searchStudentName.setAttribute('disabled', '')
+  searchClass.setAttribute('disabled', '')
+  btnSearchDatas.style.display = 'none'
+  btnEditDatas.style.display = 'initial'
+
+  btnBack.style.display = 'initial'
+  btnBack.addEventListener('click', () => {
+    location.reload('/boletim-escolar/pages/teacherArea.html')
+  })
+
+  btnEditDatas.addEventListener('click', () => {
+    let searchStudentDatas = document.querySelector('#searchStudentDatas')
+    searchStudentDatas.style.display = 'flex';
+    btnEditDatas.setAttribute('disabled', '')
+    setTimeout(() => {
+      alert('Se caso queira buscar outros alunos, clique no botao de "Buscar outro aluno" e faça uma nova busca')
+    }, 1000);
+  })
+}
+
+
 

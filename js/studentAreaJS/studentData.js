@@ -379,16 +379,27 @@ function media(doc) {
 }
 
 
+
+function absencesData(doc){
+    // console.log(doc.data().faltas)
+//    console.log(doc.data().faltas[0].dia.toDate())  
+
+
+   let dates = doc.data().faltas
+   for (let index = 0; index < dates.length; index++) {
+     console.log(dates[index].dia.toDate())
+     console.log(dates[index].motivo)
+   }
+
+}
+
+
+
+
+
 function occurrencesData(){
-
+    
 }
-
-
-
-function absencesData(){
-
-}
-
 
 function performanceAverageData(){
 
