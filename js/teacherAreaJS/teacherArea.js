@@ -4,9 +4,9 @@ const searchStudentName = document.querySelector('#searchStudentName')
 const searchClass = document.querySelector('#searchClass')
 const btnSearchDatas = document.querySelector('#btnSearchDatas')
 const btnBack = document.querySelector('#btnBack')
-
-const btnAddEdits = document.querySelector('#addEdits')
-
+const btnAddGrade = document.querySelector('#addGrade')
+const btnAddAbsences = document.querySelector('#addAbsences')
+const btnAddOccurrences = document.querySelector('#addOccurrences')
 function verifyTeacher() {
 
   auth.onAuthStateChanged((user) => {
@@ -28,40 +28,91 @@ function verifyTeacher() {
         db.collection('Alunos').where('nome', '==', searchStudentName.value).where('turma', '==', searchClass.value).onSnapshot(snap => {
           snap.forEach(element => {
             media(element)
+            absencesData(element)
+            occurrencesData(element)
             enablingAndDisablingBtns()
-
-            btnAddEdits.addEventListener('click', () => {
+            
+            btnAddGrade.addEventListener('click', () => {
               let bimonths = document.querySelector('#bimonths').value
               let searchGrade = document.querySelector('#searchGrade').value
               let gradeStudent = document.querySelector('#gradeStudent').value
+
+              if (gradeStudent !== null) {
+
+                db.collection('Alunos').doc(element.id).set(
+                  {
+                    notas: {
+                      [bimonths]: {
+                        [searchGrade]: Number(gradeStudent)
+                      }
+                    }
+                  }, { merge: true }
+                ).catch(() => {
+                  alert('Não foi possivel alterar a nota')
+                })
+              } else {
+                alert('não foi possivel preencha todos  os dados!!')
+              }
+            })
+
+
+
+
+
+            btnAddAbsences.addEventListener('click', () => {
               let absencesDate = document.querySelector('#absencesDate').value
               let reasonAbsences = document.querySelector('#reasonAbsences').value
 
+              if (absencesDate && reasonAbsences !== null) {
 
-              db.collection('Alunos').doc(element.id).set(
-                {
-                  notas: {
-                    [bimonths]: {
-                      [searchGrade]: Number(gradeStudent)
-                    }
-                  },
+                db.collection('Alunos').doc(element.id).set(
+                  {
+                    faltas: firebase.firestore.FieldValue.arrayUnion(
+                      {
+                        dia: firebase.firestore.Timestamp.fromDate(new Date(absencesDate)),
+                        motivo: reasonAbsences,
+                      }
+                    )
+                  }, { merge: true }
+                ).catch(() => {
+                  alert('Não foi possivel alterar FALTAS')
+                })
+              } else {
+                alert('nao foi possivel,preencha os campos!!')
+              }
 
-                  faltas: firebase.firestore.FieldValue.arrayUnion(
-                    {
-                      dia: firebase.firestore.Timestamp.fromDate(new Date(absencesDate)),
-                      motivo: reasonAbsences,
-                    }
-                  )
-                }, { merge: true }
-              ).catch(() => {
-                alert('Não foi possivel alterar a nota')
-              })
+             
             })
 
-            absencesData(element)
+            btnAddOccurrences.addEventListener('click', () => {
+              let occurrencesDate = document.querySelector('#occurrencesDate').value
+              let reasonOccurrences = document.querySelector('#reasonOccurrences').value
+
+              if (occurrencesDate && reasonOccurrences !== null) {
+
+                db.collection('Alunos').doc(element.id).set(
+                  {
+                    ocorrencias: firebase.firestore.FieldValue.arrayUnion(
+                      {
+                        dia: firebase.firestore.Timestamp.fromDate(new Date(occurrencesDate)),
+                        motivo: reasonOccurrences,
+                      }
+                    )
+                  }, { merge: true }
+                ).catch(() => {
+                  alert('Não foi possivel alterar ocorrencias')
+                })
+              } else {
+                alert('nao foi possivel,preencha os campos!!')
+              }
+
+             
+            })
+
+
+
           })
         })
-
       })
     }
   });

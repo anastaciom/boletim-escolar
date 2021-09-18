@@ -378,29 +378,41 @@ function media(doc) {
     }
 }
 
-
-
-function absencesData(doc){
-    // console.log(doc.data().faltas)
-//    console.log(doc.data().faltas[0].dia.toDate())  
-
-
-   let dates = doc.data().faltas
-   for (let index = 0; index < dates.length; index++) {
-     console.log(dates[index].dia.toDate())
-     console.log(dates[index].motivo)
-   }
-
+function createMenuItem(name) {
+    let li = document.createElement('li');
+    li.innerHTML = name;
+    return li;
 }
 
 
-
-
-
-function occurrencesData(){
+function absencesData(doc) {
     
+    let absencesDatas = doc.data().faltas
+   
+    absencesDatas.forEach(datasUser => {
+        const dla = document.querySelector('#dataListAbsences');
+        createMenuItem(datasUser)
+        dla.appendChild(createMenuItem(`<small>${datasUser.dia.toDate().toLocaleDateString()}</small><p>${datasUser.motivo}</p>`));
+    });
+
 }
 
-function performanceAverageData(){
+
+function occurrencesData(doc) {
+    
+    let occurrencesDatas = doc.data().ocorrencias
+
+    occurrencesDatas.forEach(datasUser => {
+        
+        const dlo = document.querySelector('#dataListOccurrences');
+        createMenuItem(datasUser)
+        dlo.appendChild(createMenuItem(`<small>${datasUser.dia.toDate().toLocaleDateString()}</small><p>${datasUser.motivo}</p>`));
+
+        
+    });
+
+}
+
+function performanceAverageData() {
 
 }

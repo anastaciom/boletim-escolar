@@ -72,20 +72,21 @@
                         <option value="historia">História</option>
                     </select>
                     <input type="number" id="gradeStudent" placeholder="Nota" max="10" min="0">
+                    <button id="addGrade">Adicionar Nota</button>
                 </div>
                 <div class="areaEditsDatas">
                     <h4>Faltas</h4>
                     <input type="date" name="" id="absencesDate">
                     <input type="text" placeholder="Motivo" id="reasonAbsences">
+                    <button id="addAbsences">Adicionar Falta</button>
                 </div>
 
                 <div class="areaEditsDatas">
                     <h4>Ocorrências</h4>
                     <input type="date" name="" id="occurrencesDate">
                     <input type="text" placeholder="Motivo" id="reasonOccurrences">
-                    
+                    <button id="addOccurrences">Adicionar ocorrências</button>
                 </div>
-                <button id="addEdits">Salvar Alterações</button>
             </div>
         </div>
 
@@ -106,7 +107,7 @@
         </div>
         <div id="studentPerformance">
             <div id="media">
-                <h2>Notas</h2>
+                <h4>Notas</h4>
                 <table class="table">
                     <tr>
                         <th></th>
@@ -188,42 +189,24 @@
                 </table>
             </div>
             <div id="absences">
-                <h2>Faltas</h2>
-                <table class="table">
-                    <tr>
-                        <th>Dia</th>
-                        <th>Motivo</th>
-
-                    </tr>
-                    <tr>
-                        <th>28/06/2021</th>
-                        <td>aa</td>
-                    </tr>
-                    
-                </table>
+                <h4>Faltas</h4>
+                <ul id="dataListAbsences">
+                    <!-- JSdatas -->
+                </ul>
             </div>
+            
             <div id="occurrences">
-                <h2>Ocorrências</h2>
-                <table class="table">
-                    <tr>
-                        <th>Dia</th>
-                        <th>Motivo</th>
-
-                    </tr>
-                    <tr>
-                        <th></th>
-                        <td></td>
-                    </tr>
+                <h4>Ocorrências</h4>
+                <ul id="dataListOccurrences">
                    
-
-                </table>
+                    <!-- JSdatas -->
+                </ul>
+               
             </div>
-
-                <div class="table">
-                    <ul id="lista">lista</ul>
-                </div>
+           
+               
             <div id="finalStatistics">
-                <h2>Média de desempenho</h2>
+                <h4>Média de desempenho</h4>
                 <div id="gradeAverage">
                     <img src="" alt="">
                 </div>
@@ -233,10 +216,11 @@
                 <div id="participation in classes">
                     <img src="" alt="">
                 </div>
+                <h3>Resultado final: APROVADO!!</h3>
             </div>
         </div>
 
-        <h3 id="finalResult">Resultado final: APROVADO!!</h3>
+        
     </main>
 
 

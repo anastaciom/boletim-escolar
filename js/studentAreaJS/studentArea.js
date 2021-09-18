@@ -11,6 +11,7 @@ function verifyStudent(){
             db.collection('Alunos').doc(uid).get().then((doc=>{
               media(doc)
               absencesData(doc)
+              occurrencesData(doc)
             })).catch(err=>{
               console.log(err)
             })
