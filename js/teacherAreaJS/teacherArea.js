@@ -7,6 +7,7 @@ const btnBack = document.querySelector('#btnBack')
 const btnAddGrade = document.querySelector('#addGrade')
 const btnAddAbsences = document.querySelector('#addAbsences')
 const btnAddOccurrences = document.querySelector('#addOccurrences')
+const addAlert = document.querySelector('#addAlert')
 function verifyTeacher() {
 
   auth.onAuthStateChanged((user) => {
@@ -23,21 +24,18 @@ function verifyTeacher() {
       })
 
 
-
       btnSearchDatas.addEventListener('click', () => {
         db.collection('Alunos').where('nome', '==', searchStudentName.value).where('turma', '==', searchClass.value).onSnapshot(snap => {
+
           snap.forEach(element => {
             media(element)
-            absencesData(element)
-            occurrencesData(element)
             enablingAndDisablingBtns()
-            
             btnAddGrade.addEventListener('click', () => {
               let bimonths = document.querySelector('#bimonths').value
               let searchGrade = document.querySelector('#searchGrade').value
               let gradeStudent = document.querySelector('#gradeStudent').value
 
-              if (gradeStudent !== null) {
+              if (gradeStudent != 0) {
 
                 db.collection('Alunos').doc(element.id).set(
                   {
@@ -50,14 +48,15 @@ function verifyTeacher() {
                 ).catch(() => {
                   alert('Não foi possivel alterar a nota')
                 })
+
+                addAlert.style.display = 'flex'
+                setTimeout(() => {
+                  addAlert.style.display = 'none'
+                }, 2000);
               } else {
-                alert('não foi possivel preencha todos  os dados!!')
+                alert('Você nao digitou a nota')
               }
             })
-
-
-
-
 
             btnAddAbsences.addEventListener('click', () => {
               let absencesDate = document.querySelector('#absencesDate').value
@@ -77,12 +76,22 @@ function verifyTeacher() {
                 ).catch(() => {
                   alert('Não foi possivel alterar FALTAS')
                 })
+
+                addAlert.style.display = 'flex'
+                setTimeout(() => {
+                  addAlert.style.display = 'none'
+                }, 2000);
+
               } else {
                 alert('nao foi possivel,preencha os campos!!')
               }
-
              
+
             })
+
+
+
+
 
             btnAddOccurrences.addEventListener('click', () => {
               let occurrencesDate = document.querySelector('#occurrencesDate').value
@@ -102,19 +111,27 @@ function verifyTeacher() {
                 ).catch(() => {
                   alert('Não foi possivel alterar ocorrencias')
                 })
+               
+                addAlert.style.display = 'flex'
+                setTimeout(() => {
+                  addAlert.style.display = 'none'
+                }, 2000);
+
               } else {
                 alert('nao foi possivel,preencha os campos!!')
               }
 
-             
+
             })
 
-
-
           })
+
         })
+
       })
+
     }
+
   });
 
 }
@@ -136,9 +153,7 @@ function enablingAndDisablingBtns() {
     let searchStudentDatas = document.querySelector('#searchStudentDatas')
     searchStudentDatas.style.display = 'flex';
     btnEditDatas.setAttribute('disabled', '')
-    setTimeout(() => {
-      alert('Se caso queira buscar outros alunos, clique no botao de "Buscar outro aluno" e faça uma nova busca')
-    }, 1000);
+    
   })
 }
 

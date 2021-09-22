@@ -378,41 +378,39 @@ function media(doc) {
     }
 }
 
-function createMenuItem(name) {
+function createMenuItem(item) {
     let li = document.createElement('li');
-    li.innerHTML = name;
+    li.innerHTML = ''
+    li.innerHTML = item;
     return li;
 }
 
 
+
 function absencesData(doc) {
-    
+
+    const dla = document.querySelector('#dataListAbsences');
     let absencesDatas = doc.data().faltas
-   
-    absencesDatas.forEach(datasUser => {
-        const dla = document.querySelector('#dataListAbsences');
-        createMenuItem(datasUser)
-        dla.appendChild(createMenuItem(`<small>${datasUser.dia.toDate().toLocaleDateString()}</small><p>${datasUser.motivo}</p>`));
-    });
+    if (absencesDatas != undefined) {
+        absencesDatas.forEach(absences => {
+            dla.appendChild(createMenuItem(`<small>${absences.dia.toDate().toLocaleDateString()}</small><p>${absences.motivo}</p>`));
+            createMenuItem(absences)
+        });
+    }
 
 }
 
 
 function occurrencesData(doc) {
-    
+
+
     let occurrencesDatas = doc.data().ocorrencias
-
-    occurrencesDatas.forEach(datasUser => {
-        
-        const dlo = document.querySelector('#dataListOccurrences');
-        createMenuItem(datasUser)
-        dlo.appendChild(createMenuItem(`<small>${datasUser.dia.toDate().toLocaleDateString()}</small><p>${datasUser.motivo}</p>`));
-
-        
-    });
-
-}
-
-function performanceAverageData() {
+    const dlo = document.querySelector('#dataListOccurrences');
+    if (occurrencesDatas != undefined) {
+        occurrencesDatas.forEach(occurrences => {
+            dlo.appendChild(createMenuItem(`<small>${occurrences.dia.toDate().toLocaleDateString()}</small><p>${occurrences.motivo}</p>`));
+            createMenuItem(occurrences)
+        });
+    }
 
 }

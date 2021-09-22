@@ -105,19 +105,20 @@ buttonCadastrar.addEventListener('click', () => {
             geografia: Number(),
             portugues: Number(),
             historia: Number(),
-          }
-          // faltas: [
+          },
+          
+          // faltas: firebase.firestore.FieldValue.arrayUnion(
           //   {
           //     dia: firebase.firestore.Timestamp.fromDate(new Date()),
-          //     motivo: ''
+          //     motivo: "",
           //   }
-          // ],
-          // ocorrencias: [
+          // ),
+          // ocorrencias: firebase.firestore.FieldValue.arrayUnion(
           //   {
           //     dia: firebase.firestore.Timestamp.fromDate(new Date()),
-          //     motivo: ''
+          //     motivo: "",
           //   }
-          // ],
+          // )
         }
 
       })

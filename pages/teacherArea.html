@@ -34,7 +34,7 @@
             <div id="editAndSearch">
                 <form>
                     <input type="search" name="" id="searchStudentName" placeholder="Nome do aluno">
-                    <label for="searchClass">Turma</label>
+                    
                     <select id="searchClass">
                         <option disabled>Selecione a turma</option>
                         <option value="3ºA">3ºA</option>
@@ -50,6 +50,13 @@
 
             </div>
             <div id="searchStudentDatas">
+               
+                <div class="areaEditsDatas">
+                    <h4>Faltas</h4>
+                    <input type="date" name="" id="absencesDate">
+                    <input type="text" placeholder="Motivo" id="reasonAbsences">
+                    <button id="addAbsences">Adicionar Falta</button>
+                </div>
                 <div class="areaEditsDatas">
                     <h4>Notas</h4>
                     <select id="bimonths">
@@ -75,13 +82,6 @@
                     <button id="addGrade">Adicionar Nota</button>
                 </div>
                 <div class="areaEditsDatas">
-                    <h4>Faltas</h4>
-                    <input type="date" name="" id="absencesDate">
-                    <input type="text" placeholder="Motivo" id="reasonAbsences">
-                    <button id="addAbsences">Adicionar Falta</button>
-                </div>
-
-                <div class="areaEditsDatas">
                     <h4>Ocorrências</h4>
                     <input type="date" name="" id="occurrencesDate">
                     <input type="text" placeholder="Motivo" id="reasonOccurrences">
@@ -90,8 +90,15 @@
             </div>
         </div>
 
+        <span id="addAlert">
+            <img style="width: 30px; height: 30px;" src="/boletim-escolar/Images/ok_48px.png" alt="" srcset="">
+            <h4>Atualizado com sucesso!!</h4>
+        </span>
 
         <div id="initialData">
+            <div id="studentPhoto">
+                <img src="" alt="" srcset="">
+            </div>
             <div id="turma">
                 <h4>Turma: </h4>
                 <h3></h3>
@@ -101,126 +108,96 @@
                 <h3></h3>
                 <small id="user-name"></small>
             </div>
-            <div id="studentPhoto">
-                <img src="" alt="" srcset="">
-            </div>
+            
         </div>
         <div id="studentPerformance">
+
             <div id="media">
                 <h4>Notas</h4>
                 <table class="table">
-                    <tr>
-                        <th></th>
+                    <thead>
+                        <th>##</th>
                         <th>1º</th>
                         <th>2º</th>
                         <th>3º</th>
                         <th>4º</th>
-                    </tr>
-                    <tr id="matematica">
-                        <th>Matematica</th>
-                        <td id="mat-b1"></td>
-                        <td id="mat-b2"></td>
-                        <td id="mat-b3"></td>
-                        <td id="mat-b4"></td>
-                    </tr>
-                    <tr id="quimica">
-                        <th>Quimica</th>
-                        <td id="qui-b1"></td>
-                        <td id="qui-b2"></td>
-                        <td id="qui-b3"></td>
-                        <td id="qui-b4"></td>
-                    </tr>
-                    <tr id="fisica">
-                        <th>Física</th>
-                        <td id="fis-b1"></td>
-                        <td id="fis-b2"></td>
-                        <td id="fis-b3"></td>
-                        <td id="fis-b4"></td>
-                    </tr>
-                    <tr id="inglês">
-                        <th>Inglês</th>
-                        <td id="ing-b1"></td>
-                        <td id="ing-b2"></td>
-                        <td id="ing-b3"></td>
-                        <td id="ing-b4"></td>
-                    </tr>
-                    <tr id="biologia">
-                        <th>Biologia</th>
-                        <td id="bio-b1"></td>
-                        <td id="bio-b2"></td>
-                        <td id="bio-b3"></td>
-                        <td id="bio-b4"></td>
-                    </tr>
-                    <tr id="artes">
-                        <th>Artes</th>
-                        <td id="art-b1"></td>
-                        <td id="art-b2"></td>
-                        <td id="art-b3"></td>
-                        <td id="art-b4"></td>
-                    </tr>
-                    <tr id="ed-fisica">
-                        <th>Ed.Física</th>
-                        <td id="efi-b1"></td>
-                        <td id="efi-b2"></td>
-                        <td id="efi-b3"></td>
-                        <td id="efi-b4"></td>
-                    </tr>
-                    <tr id="geografia">
-                        <th>Geografia</th>
-                        <td id="geo-b1"></td>
-                        <td id="geo-b2"></td>
-                        <td id="geo-b3"></td>
-                        <td id="geo-b4"></td>
-                    </tr>
-                    <tr id="portugues">
-                        <th>Português</th>
-                        <td id="lpo-b1"></td>
-                        <td id="lpo-b2"></td>
-                        <td id="lpo-b3"></td>
-                        <td id="lpo-b4"></td>
-                    </tr>
-                    <tr id="historia">
-                        <th>História</th>
-                        <td id="his-b1"></td>
-                        <td id="his-b2"></td>
-                        <td id="his-b3"></td>
-                        <td id="his-b4"></td>
-                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="matematica">
+                            <th>Matematica</th>
+                            <td id="mat-b1"></td>
+                            <td id="mat-b2"></td>
+                            <td id="mat-b3"></td>
+                            <td id="mat-b4"></td>
+                        </tr>
+                        <tr id="quimica">
+                            <th>Quimica</th>
+                            <td id="qui-b1"></td>
+                            <td id="qui-b2"></td>
+                            <td id="qui-b3"></td>
+                            <td id="qui-b4"></td>
+                        </tr>
+                        <tr id="fisica">
+                            <th>Física</th>
+                            <td id="fis-b1"></td>
+                            <td id="fis-b2"></td>
+                            <td id="fis-b3"></td>
+                            <td id="fis-b4"></td>
+                        </tr>
+                        <tr id="inglês">
+                            <th>Inglês</th>
+                            <td id="ing-b1"></td>
+                            <td id="ing-b2"></td>
+                            <td id="ing-b3"></td>
+                            <td id="ing-b4"></td>
+                        </tr>
+                        <tr id="biologia">
+                            <th>Biologia</th>
+                            <td id="bio-b1"></td>
+                            <td id="bio-b2"></td>
+                            <td id="bio-b3"></td>
+                            <td id="bio-b4"></td>
+                        </tr>
+                        <tr id="artes">
+                            <th>Artes</th>
+                            <td id="art-b1"></td>
+                            <td id="art-b2"></td>
+                            <td id="art-b3"></td>
+                            <td id="art-b4"></td>
+                        </tr>
+                        <tr id="ed-fisica">
+                            <th>Ed.Física</th>
+                            <td id="efi-b1"></td>
+                            <td id="efi-b2"></td>
+                            <td id="efi-b3"></td>
+                            <td id="efi-b4"></td>
+                        </tr>
+                        <tr id="geografia">
+                            <th>Geografia</th>
+                            <td id="geo-b1"></td>
+                            <td id="geo-b2"></td>
+                            <td id="geo-b3"></td>
+                            <td id="geo-b4"></td>
+                        </tr>
+                        <tr id="portugues">
+                            <th>Português</th>
+                            <td id="lpo-b1"></td>
+                            <td id="lpo-b2"></td>
+                            <td id="lpo-b3"></td>
+                            <td id="lpo-b4"></td>
+                        </tr>
+                        <tr id="historia">
+                            <th>História</th>
+                            <td id="his-b1"></td>
+                            <td id="his-b2"></td>
+                            <td id="his-b3"></td>
+                            <td id="his-b4"></td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
-            <div id="absences">
-                <h4>Faltas</h4>
-                <ul id="dataListAbsences">
-                    <!-- JSdatas -->
-                </ul>
-            </div>
-            
-            <div id="occurrences">
-                <h4>Ocorrências</h4>
-                <ul id="dataListOccurrences">
-                   
-                    <!-- JSdatas -->
-                </ul>
-               
-            </div>
-           
-               
-            <div id="finalStatistics">
-                <h4>Média de desempenho</h4>
-                <div id="gradeAverage">
-                    <img src="" alt="">
-                </div>
-                <div id="absenceAverage">
-                    <img src="" alt="">
-                </div>
-                <div id="participation in classes">
-                    <img src="" alt="">
-                </div>
-                <h3>Resultado final: APROVADO!!</h3>
-            </div>
-        </div>
 
-        
+        </div>
     </main>
 
 
