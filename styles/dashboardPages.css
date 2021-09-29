@@ -57,7 +57,7 @@ input[type="checkbox"] {
 }
 
 input:checked + #labelDarkMode {
-  background-color: var(--color-headings);
+  background-color: var(--items-color);
 }
 
 input:checked + #labelDarkMode::after {
@@ -255,6 +255,7 @@ header {
   align-items: center;
   justify-content: space-around;
   flex-wrap: wrap;
+ 
 }
 
 #studentPerformance div {
@@ -281,7 +282,6 @@ header {
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.6);
-  /* display: flex; */
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -357,6 +357,7 @@ header {
   height: 90%;
   text-align: center;
   font-weight: bold;
+  font-size: 25px;
 }
 
 .table td,
@@ -378,7 +379,7 @@ th {
 
 #addAlert {
   display: none;
-  z-index: 2000;
+  z-index: 3000;
   position: fixed;
   top: 60px;
   width: 100%;
@@ -501,3 +502,110 @@ button {
 #btnEditDatas {
   display: none;
 }
+
+
+/* ================================responsividade================================================= */
+
+
+
+@media screen and (max-width: 550px){
+ 
+  #labelDarkMode {
+    width: 45px;
+  }
+  header {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  #tittleHeader {
+    display: flex;
+    width: auto;
+  }
+
+#tittleHeader h1{
+  display: none;
+}
+
+  
+  #user-name{
+    font-size: 15px;
+  }
+
+  #area-user #user-name {
+    padding-right: 3px;
+  }
+  
+  #area-user #exit {
+    width: 35px;
+    height: 35px;
+    padding: 3px;
+  }
+
+/* ================================HEader======================== */
+
+  #mainData h1 {
+    font-size: 20px;
+  }
+
+  #name h3 {
+    font-size: 25px;
+  }
+  
+  
+  #studentPerformance {
+   margin-top: 100px;
+  }
+  
+  #studentPerformance div {
+    margin-bottom: 10px;
+  }
+  
+  #media,
+  #absences,
+  #occurrences,
+  #finalStatistics {
+    height: 90%;
+    width: 90%;
+  }
+  
+  #media h4,
+  #absences h4,
+  #occurrences h4,
+  #finalStatistics h4,
+  .table h4 {
+    font-size: 25px;
+  }
+  
+  .table {
+    font-size: 15px;
+  }
+  
+  /* =================================TeacherArea======================= */
+  
+  #searchStudent {
+  height: 800px;
+  }
+  
+  #searchStudent input,
+  button,
+  select {
+    width: 80%;
+    padding: 8px;
+    margin-bottom: 2px;
+  }
+  .areaEditsDatas {
+    width: 100%;
+  }
+  .areaEditsDatas input,
+  select,
+  button {
+    margin-bottom: 5px;
+    width: 80%;
+  }
+  
+  #teacher-name{
+   font-size: 15px;
+   padding-right: 3px;
+  }
+
+} 
