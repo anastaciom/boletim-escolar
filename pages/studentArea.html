@@ -15,8 +15,11 @@
 
 <body>
     <header>
-        <h1>Escola de São Paulo</h1>
-
+        <div id="tittleHeader">
+            <input type="checkbox" name="theme" id="switch">
+            <label id="labelDarkMode" for="switch"></label>
+            <h1>Escola de São Paulo</h1>
+        </div>
         <div id="area-user">
             <h3 id="user-name"></h3>
             <img src="/boletim-escolar/Images/exitIcon.png" id="exit">
@@ -26,136 +29,175 @@
         </span>
     </header>
 
-    <main>
-        <h2 id="titleStudent">Area do aluno</h2>
-        <input type="checkbox" name="theme" id="switch">
-        <label id="labelDarkMode" for="switch"></label>
+    <main id="mainData">
+
+        <h1>Area do aluno</h1>
 
         <div id="initialData">
-            <div id="studentPhoto">
-                <img src="" alt="" srcset="">
+
+            <div id="cardStudent">
+                <div id="photo">
+                    <img src="" alt="" srcset="">
+                </div>
+                <div id="basicInfo">
+                    <h5>Turma</h5>
+                    <p id="turma"></p>
+                </div>
             </div>
-            <div id="turma">
-                <h4>Turma: </h4>
-                <h3></h3>
-            </div>
+
             <div id="name">
                 <small>Nome do aluno:</small>
                 <h3></h3>
                 <small id="user-name"></small>
             </div>
-            
+
         </div>
-        <div id="studentPerformance">
-            <div id="media">
-                <h4>Notas</h4>
-                <table class="table">
-                    <thead>
-                        <th>##</th>
-                        <th>1º</th>
-                        <th>2º</th>
-                        <th>3º</th>
-                        <th>4º</th>
-                    </thead>
-                    <tbody>
-                        <tr id="matematica">
-                            <th>Matemática</th>
-                            <td id="mat-b1"></td>
-                            <td id="mat-b2"></td>
-                            <td id="mat-b3"></td>
-                            <td id="mat-b4"></td>
-                        </tr>
-                        <tr id="quimica">
-                            <th>Química</th>
-                            <td id="qui-b1"></td>
-                            <td id="qui-b2"></td>
-                            <td id="qui-b3"></td>
-                            <td id="qui-b4"></td>
-                        </tr>
-                        <tr id="fisica">
-                            <th>Física</th>
-                            <td id="fis-b1"></td>
-                            <td id="fis-b2"></td>
-                            <td id="fis-b3"></td>
-                            <td id="fis-b4"></td>
-                        </tr>
-                        <tr id="inglês">
-                            <th>Inglês</th>
-                            <td id="ing-b1"></td>
-                            <td id="ing-b2"></td>
-                            <td id="ing-b3"></td>
-                            <td id="ing-b4"></td>
-                        </tr>
-                        <tr id="biologia">
-                            <th>Biologia</th>
-                            <td id="bio-b1"></td>
-                            <td id="bio-b2"></td>
-                            <td id="bio-b3"></td>
-                            <td id="bio-b4"></td>
-                        </tr>
-                        <tr id="artes">
-                            <th>Artes</th>
-                            <td id="art-b1"></td>
-                            <td id="art-b2"></td>
-                            <td id="art-b3"></td>
-                            <td id="art-b4"></td>
-                        </tr>
-                        <tr id="ed-fisica">
-                            <th>Ed.Física</th>
-                            <td id="efi-b1"></td>
-                            <td id="efi-b2"></td>
-                            <td id="efi-b3"></td>
-                            <td id="efi-b4"></td>
-                        </tr>
-                        <tr id="geografia">
-                            <th>Geografia</th>
-                            <td id="geo-b1"></td>
-                            <td id="geo-b2"></td>
-                            <td id="geo-b3"></td>
-                            <td id="geo-b4"></td>
-                        </tr>
-                        <tr id="portugues">
-                            <th>Português</th>
-                            <td id="lpo-b1"></td>
-                            <td id="lpo-b2"></td>
-                            <td id="lpo-b3"></td>
-                            <td id="lpo-b4"></td>
-                        </tr>
-                        <tr id="historia">
-                            <th>História</th>
-                            <td id="his-b1"></td>
-                            <td id="his-b2"></td>
-                            <td id="his-b3"></td>
-                            <td id="his-b4"></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+    </main>
+
+
+    <section id="studentPerformance">
+
+        <div id="btnMedia">
+            <h4>Notas</h4>
+        </div>
+
+        <div id="btnAbsences">
+            <h4>Faltas</h4>
+        </div>
+
+        <div id="btnOccurrences">
+            <h4>Ocorrências</h4>
+        </div>
+    </section>
+
+    <div class="modal-content" id="modalMedia">
+        <div class="btnModal" id="closeMedia">
+            <span>
+                <img src="/boletim-escolar/Images/closeModal.png" alt="">
+            </span>
+        </div>
+
+        <div id="media">
+            <h4>Notas</h4>
+            <table class="table">
+                <thead>
+                    <th>##</th>
+                    <th>1º</th>
+                    <th>2º</th>
+                    <th>3º</th>
+                    <th>4º</th>
+                </thead>
+                <tbody>
+                    <tr id="matematica">
+                        <th>Matemática</th>
+                        <td id="mat-b1"></td>
+                        <td id="mat-b2"></td>
+                        <td id="mat-b3"></td>
+                        <td id="mat-b4"></td>
+                    </tr>
+                    <tr id="quimica">
+                        <th>Química</th>
+                        <td id="qui-b1"></td>
+                        <td id="qui-b2"></td>
+                        <td id="qui-b3"></td>
+                        <td id="qui-b4"></td>
+                    </tr>
+                    <tr id="fisica">
+                        <th>Física</th>
+                        <td id="fis-b1"></td>
+                        <td id="fis-b2"></td>
+                        <td id="fis-b3"></td>
+                        <td id="fis-b4"></td>
+                    </tr>
+                    <tr id="inglês">
+                        <th>Inglês</th>
+                        <td id="ing-b1"></td>
+                        <td id="ing-b2"></td>
+                        <td id="ing-b3"></td>
+                        <td id="ing-b4"></td>
+                    </tr>
+                    <tr id="biologia">
+                        <th>Biologia</th>
+                        <td id="bio-b1"></td>
+                        <td id="bio-b2"></td>
+                        <td id="bio-b3"></td>
+                        <td id="bio-b4"></td>
+                    </tr>
+                    <tr id="artes">
+                        <th>Artes</th>
+                        <td id="art-b1"></td>
+                        <td id="art-b2"></td>
+                        <td id="art-b3"></td>
+                        <td id="art-b4"></td>
+                    </tr>
+                    <tr id="ed-fisica">
+                        <th>Ed.Física</th>
+                        <td id="efi-b1"></td>
+                        <td id="efi-b2"></td>
+                        <td id="efi-b3"></td>
+                        <td id="efi-b4"></td>
+                    </tr>
+                    <tr id="geografia">
+                        <th>Geografia</th>
+                        <td id="geo-b1"></td>
+                        <td id="geo-b2"></td>
+                        <td id="geo-b3"></td>
+                        <td id="geo-b4"></td>
+                    </tr>
+                    <tr id="portugues">
+                        <th>Português</th>
+                        <td id="lpo-b1"></td>
+                        <td id="lpo-b2"></td>
+                        <td id="lpo-b3"></td>
+                        <td id="lpo-b4"></td>
+                    </tr>
+                    <tr id="historia">
+                        <th>História</th>
+                        <td id="his-b1"></td>
+                        <td id="his-b2"></td>
+                        <td id="his-b3"></td>
+                        <td id="his-b4"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+
+    <div class="modal-content" id="modalAbsences">
+        <div class="btnModal" id="closeAbsences">
+            <span>
+                <img src="/boletim-escolar/Images/closeModal.png" alt="">
+            </span>
+        </div>
             <div id="absences">
                 <h4>Faltas</h4>
                 <ul id="dataListAbsences">
-                    <!-- JSdatas -->
+
 
                 </ul>
             </div>
+        
+    </div>
 
-            <div id="occurrences">
-                <h4>Ocorrências</h4>
-                <ul id="dataListOccurrences">
-                    <!-- JSdatas -->
+    <div class="modal-content" id="modalOccurrences">
+        <div class="btnModal" id="closeOccurrences">
+            <span>
+                <img src="/boletim-escolar/Images/closeModal.png" alt="">
+            </span>
+        </div>
+        <div id="occurrences">
+            <h4>Ocorrências</h4>
+            <ul id="dataListOccurrences">
 
-                </ul>
-            </div>
 
-
-           
-               
-            </div>
+            </ul>
         </div>
 
+    </div>
 
 
-    </main>
 
     <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>

@@ -107,18 +107,6 @@ buttonCadastrar.addEventListener('click', () => {
             historia: Number(),
           },
           
-          // faltas: firebase.firestore.FieldValue.arrayUnion(
-          //   {
-          //     dia: firebase.firestore.Timestamp.fromDate(new Date()),
-          //     motivo: "",
-          //   }
-          // ),
-          // ocorrencias: firebase.firestore.FieldValue.arrayUnion(
-          //   {
-          //     dia: firebase.firestore.Timestamp.fromDate(new Date()),
-          //     motivo: "",
-          //   }
-          // )
         }
 
       })

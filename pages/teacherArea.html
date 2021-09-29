@@ -34,7 +34,7 @@
             <div id="editAndSearch">
                 <form>
                     <input type="search" name="" id="searchStudentName" placeholder="Nome do aluno">
-                    
+
                     <select id="searchClass">
                         <option disabled>Selecione a turma</option>
                         <option value="3ºA">3ºA</option>
@@ -50,7 +50,7 @@
 
             </div>
             <div id="searchStudentDatas">
-               
+
                 <div class="areaEditsDatas">
                     <h4>Faltas</h4>
                     <input type="date" name="" id="absencesDate">
@@ -95,23 +95,54 @@
             <h4>Atualizado com sucesso!!</h4>
         </span>
 
-        <div id="initialData">
-            <div id="studentPhoto">
-                <img src="" alt="" srcset="">
-            </div>
-            <div id="turma">
-                <h4>Turma: </h4>
-                <h3></h3>
-            </div>
-            <div id="name">
-                <small>Nome do aluno:</small>
-                <h3></h3>
-                <small id="user-name"></small>
-            </div>
-            
-        </div>
-        <div id="studentPerformance">
+        <main id="mainData">
 
+            <h1>Area do aluno</h1>
+    
+            <div id="initialData">
+    
+                <div id="cardStudent">
+                    <div id="photo">
+                        <img src="" alt="" srcset="">
+                    </div>
+                    <div id="basicInfo">
+                        <h5>Turma</h5>
+                        <p id="turma"></p>
+                    </div>
+                </div>
+    
+                <div id="name">
+                    <small>Nome do aluno:</small>
+                    <h3></h3>
+                    <small id="user-name"></small>
+                </div>
+    
+            </div>
+        </main>
+    
+    
+        <section id="studentPerformance">
+    
+            <div id="btnMedia">
+                <h4>Notas</h4>
+            </div>
+    
+            <div id="btnAbsences">
+                <h4>Faltas</h4>
+            </div>
+    
+            <div id="btnOccurrences">
+                <h4>Ocorrências</h4>
+            </div>
+        </section>
+    
+        <div class="modal-content" id="modalMedia">
+            <div class="btnModal" id="closeMedia">
+                <span>
+                    <img src="/boletim-escolar/Images/closeModal.png" alt="">
+                </span>
+            </div>
+    
             <div id="media">
                 <h4>Notas</h4>
                 <table class="table">
@@ -124,14 +155,14 @@
                     </thead>
                     <tbody>
                         <tr id="matematica">
-                            <th>Matematica</th>
+                            <th>Matemática</th>
                             <td id="mat-b1"></td>
                             <td id="mat-b2"></td>
                             <td id="mat-b3"></td>
                             <td id="mat-b4"></td>
                         </tr>
                         <tr id="quimica">
-                            <th>Quimica</th>
+                            <th>Química</th>
                             <td id="qui-b1"></td>
                             <td id="qui-b2"></td>
                             <td id="qui-b3"></td>
@@ -196,9 +227,41 @@
                     </tbody>
                 </table>
             </div>
-
+    
         </div>
-    </main>
+    
+    
+        <div class="modal-content" id="modalAbsences">
+            <div class="btnModal" id="closeAbsences">
+                <span>
+                    <img src="/boletim-escolar/Images/closeModal.png" alt="">
+                </span>
+            </div>
+                <div id="absences">
+                    <h4>Faltas</h4>
+                    <ul id="dataListAbsences">
+    
+    
+                    </ul>
+                </div>
+            
+        </div>
+    
+        <div class="modal-content" id="modalOccurrences">
+            <div class="btnModal" id="closeOccurrences">
+                <span>
+                    <img src="/boletim-escolar/Images/closeModal.png" alt="">
+                </span>
+            </div>
+            <div id="occurrences">
+                <h4>Ocorrências</h4>
+                <ul id="dataListOccurrences">
+    
+    
+                </ul>
+            </div>
+    
+        </div>
 
 
     <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>

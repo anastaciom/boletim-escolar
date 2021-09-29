@@ -28,8 +28,9 @@ function verifyTeacher() {
         db.collection('Alunos').where('nome', '==', searchStudentName.value).where('turma', '==', searchClass.value).onSnapshot(snap => {
 
           snap.forEach(element => {
-            media(element)
+            mainStudentInfo(element)
             enablingAndDisablingBtns()
+            pageFeatures(element)
             btnAddGrade.addEventListener('click', () => {
               let bimonths = document.querySelector('#bimonths').value
               let searchGrade = document.querySelector('#searchGrade').value

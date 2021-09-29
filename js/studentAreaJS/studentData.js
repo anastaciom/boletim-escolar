@@ -1,9 +1,47 @@
-function media(doc) {
-    const turma = document.querySelector('#turma h3')
+function mainStudentInfo(doc) {
+    const turma = document.querySelector('#turma')
     const studentEmail = document.querySelector('#user-name')
     const studentName = document.querySelector('#name h3')
 
-    // ===========================subjects===============
+    studentEmail.textContent = (doc.data().email)
+    studentName.textContent = (doc.data().nome)
+    turma.textContent = (doc.data().turma)
+}
+
+
+function pageFeatures(doc) {
+    btnMedia.addEventListener('click', () => {
+        modalMedia.style.display = 'flex'
+        media(doc)
+        closeMedia.addEventListener('click', () => {
+            modalMedia.style.display = 'none'
+        })
+    })
+    btnAbsences.addEventListener('click', () => {
+        modalAbsences.style.display = 'flex'
+        absencesData(doc)
+        closeAbsences.addEventListener('click', () => {
+            modalAbsences.style.display = 'none'
+        })
+
+    })
+    btnOccurrences.addEventListener('click', () => {
+        modalOccurrences.style.display = 'flex'
+        occurrencesData(doc)
+
+        closeOccurrences.addEventListener('click', () => {
+            modalOccurrences.style.display = 'none'
+        })
+    })
+}
+
+
+
+
+
+
+
+function media(doc) {
     const matb1 = document.querySelector('#mat-b1')
     const matb2 = document.querySelector('#mat-b2')
     const matb3 = document.querySelector('#mat-b3')
@@ -75,9 +113,7 @@ function media(doc) {
 
 
 
-    studentEmail.textContent = (doc.data().email)
-    studentName.textContent = (doc.data().nome)
-    turma.textContent = (doc.data().turma)
+
 
     matb1.textContent = (doc.data().notas.bimestre1.matematica)
     matb2.textContent = (doc.data().notas.bimestre2.matematica)
@@ -380,7 +416,6 @@ function media(doc) {
 
 function createMenuItem(item) {
     let li = document.createElement('li');
-    li.innerHTML = ''
     li.innerHTML = item;
     return li;
 }
@@ -388,8 +423,8 @@ function createMenuItem(item) {
 
 
 function absencesData(doc) {
-
     const dla = document.querySelector('#dataListAbsences');
+    dla.innerText = "";
     let absencesDatas = doc.data().faltas
     if (absencesDatas != undefined) {
         absencesDatas.forEach(absences => {
@@ -402,15 +437,19 @@ function absencesData(doc) {
 
 
 function occurrencesData(doc) {
-
-
     let occurrencesDatas = doc.data().ocorrencias
     const dlo = document.querySelector('#dataListOccurrences');
+    dlo.innerText = "";
     if (occurrencesDatas != undefined) {
         occurrencesDatas.forEach(occurrences => {
             dlo.appendChild(createMenuItem(`<small>${occurrences.dia.toDate().toLocaleDateString()}</small><p>${occurrences.motivo}</p>`));
             createMenuItem(occurrences)
+            
         });
     }
-
+      
 }
+
+
+
+
