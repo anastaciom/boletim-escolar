@@ -131,10 +131,10 @@ buttonLogin.addEventListener('click', () => {
         .then((user) => {
           if (user.user.uid == 'V9ay11XWwtaQIal85VqXNYqy1aT2') {
             alert('Seja bem vindo PROFESSOR!!')
-            window.location.href = '/boletim-escolar/pages/teacherArea.html';
+            window.location.href = './pages/teacherArea.html';
           } else {
             alert('Seja bem vindo aluno!! ' + user.user.email)
-            window.location.href = '/boletim-escolar/pages/studentArea.html';
+            window.location.href = './pages/studentArea.html';
           }
         })
         .catch(() => {

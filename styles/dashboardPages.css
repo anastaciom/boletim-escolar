@@ -507,6 +507,19 @@ button {
 /* ================================responsividade================================================= */
 
 
+@media screen and (max-width: 800px){
+  #media,
+  #absences,
+  #occurrences,
+  #finalStatistics {
+    height: 80%;
+    width: 80%;
+  }
+}
+
+
+
+
 
 @media screen and (max-width: 550px){
  

@@ -17,7 +17,7 @@ function verifyStudent() {
 
   auth.onAuthStateChanged((user) => {
     if (!user) {
-      window.location.href = '/boletim-escolar/index.html';
+      window.location.href = '../index.html';
       console.log('Não existe usuario')
     } else {
       console.log('logado')
