@@ -25,110 +25,115 @@ function verifyTeacher() {
 
 
       btnSearchDatas.addEventListener('click', () => {
-        db.collection('Alunos').where('nome', '==', searchStudentName.value).where('turma', '==', searchClass.value).onSnapshot(snap => {
 
-          snap.forEach(element => {
-            mainStudentInfo(element)
-            enablingAndDisablingBtns()
-            pageFeatures(element)
-            btnAddGrade.addEventListener('click', () => {
-              let bimonths = document.querySelector('#bimonths').value
-              let searchGrade = document.querySelector('#searchGrade').value
-              let gradeStudent = document.querySelector('#gradeStudent').value
+        if (searchStudentName.value == '' || searchClass.value == '') {
+          alert('Preencha todos os campos!!')
+        } else {
+          db.collection('Alunos').where('nome', '==', searchStudentName.value).where('turma', '==', searchClass.value).onSnapshot(snap => {
 
-              if (gradeStudent != 0) {
+            snap.forEach(element => {
+              mainStudentInfo(element)
+              enablingAndDisablingBtns()
+              pageFeatures(element)
+              btnAddGrade.addEventListener('click', () => {
+                let bimonths = document.querySelector('#bimonths').value
+                let searchGrade = document.querySelector('#searchGrade').value
+                let gradeStudent = document.querySelector('#gradeStudent').value
 
-                db.collection('Alunos').doc(element.id).set(
-                  {
-                    notas: {
-                      [bimonths]: {
-                        [searchGrade]: Number(gradeStudent)
+                if (gradeStudent != 0) {
+
+                  db.collection('Alunos').doc(element.id).set(
+                    {
+                      notas: {
+                        [bimonths]: {
+                          [searchGrade]: Number(gradeStudent)
+                        }
                       }
-                    }
-                  }, { merge: true }
-                ).catch(() => {
-                  alert('Não foi possivel alterar a nota')
-                })
+                    }, { merge: true }
+                  ).catch(() => {
+                    alert('Não foi possivel alterar a nota')
+                  })
 
-                addAlert.style.display = 'flex'
-                setTimeout(() => {
-                  addAlert.style.display = 'none'
-                }, 2000);
-              } else {
-                alert('Você nao digitou a nota')
-              }
-            })
+                  addAlert.style.display = 'flex'
+                  setTimeout(() => {
+                    addAlert.style.display = 'none'
+                  }, 2000);
+                } else {
+                  alert('Você nao digitou a nota')
+                }
+              })
 
-            btnAddAbsences.addEventListener('click', () => {
-              let absencesDate = document.querySelector('#absencesDate').value
-              let reasonAbsences = document.querySelector('#reasonAbsences').value
+              btnAddAbsences.addEventListener('click', () => {
+                let absencesDate = document.querySelector('#absencesDate').value
+                let reasonAbsences = document.querySelector('#reasonAbsences').value
 
-              if (absencesDate && reasonAbsences !== null) {
+                if (absencesDate && reasonAbsences !== null) {
 
-                db.collection('Alunos').doc(element.id).set(
-                  {
-                    faltas: firebase.firestore.FieldValue.arrayUnion(
-                      {
-                        dia: firebase.firestore.Timestamp.fromDate(new Date(absencesDate)),
-                        motivo: reasonAbsences,
-                      }
-                    )
-                  }, { merge: true }
-                ).catch(() => {
-                  alert('Não foi possivel alterar FALTAS')
-                })
+                  db.collection('Alunos').doc(element.id).set(
+                    {
+                      faltas: firebase.firestore.FieldValue.arrayUnion(
+                        {
+                          dia: firebase.firestore.Timestamp.fromDate(new Date(absencesDate)),
+                          motivo: reasonAbsences,
+                        }
+                      )
+                    }, { merge: true }
+                  ).catch(() => {
+                    alert('Não foi possivel alterar FALTAS')
+                  })
 
-                addAlert.style.display = 'flex'
-                setTimeout(() => {
-                  addAlert.style.display = 'none'
-                }, 2000);
+                  addAlert.style.display = 'flex'
+                  setTimeout(() => {
+                    addAlert.style.display = 'none'
+                  }, 2000);
 
-              } else {
-                alert('nao foi possivel,preencha os campos!!')
-              }
-             
+                } else {
+                  alert('nao foi possivel,preencha os campos!!')
+                }
 
-            })
 
+              })
 
 
 
 
-            btnAddOccurrences.addEventListener('click', () => {
-              let occurrencesDate = document.querySelector('#occurrencesDate').value
-              let reasonOccurrences = document.querySelector('#reasonOccurrences').value
 
-              if (occurrencesDate && reasonOccurrences !== null) {
+              btnAddOccurrences.addEventListener('click', () => {
+                let occurrencesDate = document.querySelector('#occurrencesDate').value
+                let reasonOccurrences = document.querySelector('#reasonOccurrences').value
 
-                db.collection('Alunos').doc(element.id).set(
-                  {
-                    ocorrencias: firebase.firestore.FieldValue.arrayUnion(
-                      {
-                        dia: firebase.firestore.Timestamp.fromDate(new Date(occurrencesDate)),
-                        motivo: reasonOccurrences,
-                      }
-                    )
-                  }, { merge: true }
-                ).catch(() => {
-                  alert('Não foi possivel alterar ocorrencias')
-                })
-               
-                addAlert.style.display = 'flex'
-                setTimeout(() => {
-                  addAlert.style.display = 'none'
-                }, 2000);
+                if (occurrencesDate && reasonOccurrences !== null) {
 
-              } else {
-                alert('nao foi possivel,preencha os campos!!')
-              }
+                  db.collection('Alunos').doc(element.id).set(
+                    {
+                      ocorrencias: firebase.firestore.FieldValue.arrayUnion(
+                        {
+                          dia: firebase.firestore.Timestamp.fromDate(new Date(occurrencesDate)),
+                          motivo: reasonOccurrences,
+                        }
+                      )
+                    }, { merge: true }
+                  ).catch(() => {
+                    alert('Não foi possivel alterar ocorrencias')
+                  })
 
+                  addAlert.style.display = 'flex'
+                  setTimeout(() => {
+                    addAlert.style.display = 'none'
+                  }, 2000);
+
+                } else {
+                  alert('nao foi possivel,preencha os campos!!')
+                }
+
+
+              })
 
             })
 
           })
 
-        })
-
+        }
       })
 
     }
@@ -154,7 +159,7 @@ function enablingAndDisablingBtns() {
     let searchStudentDatas = document.querySelector('#searchStudentDatas')
     searchStudentDatas.style.display = 'flex';
     btnEditDatas.setAttribute('disabled', '')
-    
+
   })
 }
 
