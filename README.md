@@ -27,9 +27,7 @@
 ![](./assetsReadme/gifs/aluno.gif)
 
 ---
-## Exemplo na versão mobile:
 
-![](./assetsReadme/responsive.png)
 # **Perfil do Professor:**
 - ## O **perfil do professor é unico**, e para acessar ele, utlize:
 
