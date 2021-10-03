@@ -17,7 +17,7 @@
     <main id="areaLogin">
         <h1>Boletim Escolar</h1>
         <h3>Login</h3>
-        <form method="POST">
+        <form method="POST" autocomplete="on">
             <input type="email" id="InputUser" placeholder="E-mail" maxlength="100">
             <input type="password" id="InputPassword" placeholder="Senha" minlength="6">
         </form>
@@ -41,7 +41,7 @@
     <span class="registerArea">
 
         <h1>Cadastre-se</h1>
-        <form method="POST">
+        <form method="POST" autocomplete="off">
             <input type="text" id="regNameInput" placeholder="Nome do aluno" minlength="2">
             <small id="regMessageName" class="msgError">Exemplo: "José Santos"</small>
 
@@ -53,7 +53,7 @@
             <small id="regMessagePass" class="msgError">A senha deverá ter pelo menos 6 caracteres</small>
 
             <input type="text" id="regClassInput" placeholder="Turma" maxlength="3" minlength="2">
-            <small id="regMessageClass" class="msgError">Exemplo: "3ºA" ou "3A"</small>
+            <small id="regMessageClass" class="msgError">Exemplo: "3ºA".O sistema tem poucas turmas então as turmas estão começando do "1ºA, "B" e "C" até "3ºA", "B" e "C"</small>
         </form>
 
         <button id="cadastrar">Cadastrar</button>
