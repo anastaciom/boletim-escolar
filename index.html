@@ -14,6 +14,7 @@
 </head>
 
 <body>
+    <span class="icon-github"><a href="https://github.com/menezes11/boletim-escolar"><img src="./Images/github.png"></a></span>
     <main id="areaLogin">
         <h1>Boletim Escolar</h1>
         <h3>Login</h3>
@@ -32,14 +33,13 @@
     <section id="img-bg-register">
         <img src="./Images/undraw_online_reading_np7n.svg">
     </section>
-
     <div id="loginMsgError">
         <h4>Preencha os campos com os dados corretos</h4>
         <button id="closeMsg">OK</button>
     </div>
 
-    <span class="registerArea">
 
+    <span class="registerArea">
         <h1>Cadastre-se</h1>
         <form method="POST" autocomplete="off">
             <input type="text" id="regNameInput" placeholder="Nome do aluno" minlength="2">
@@ -53,13 +53,15 @@
             <small id="regMessagePass" class="msgError">A senha deverá ter pelo menos 6 caracteres</small>
 
             <input type="text" id="regClassInput" placeholder="Turma" maxlength="3" minlength="2">
-            <small id="regMessageClass" class="msgError">Exemplo: "3ºA".O sistema tem poucas turmas então as turmas estão começando do "1ºA, "B" e "C" até "3ºA", "B" e "C"</small>
+            <small id="regMessageClass" class="msgError">Exemplo: "3ºA".O sistema tem poucas turmas então as turmas
+                estão começando do "1ºA, "B" e "C" até "3ºA", "B" e "C"</small>
         </form>
 
         <button id="cadastrar">Cadastrar</button>
         <p>Já é aluno? clique em <strong>"VOLTAR"</strong> e faça o login</p>
         <button id="voltar">Voltar</button>
     </span>
+
 
     <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
