@@ -244,6 +244,44 @@ p {
   }
 }
 
+
+@media screen and (max-width: 1366px) {
+  body {
+    width: 100vw;
+    height: 100vh;
+    background-color: #5a3e8e;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+  #areaLogin {
+    position: absolute;
+    z-index: 100;
+    width: 480px;
+    height: 480px;
+  }
+
+  #areaLogin form {
+    height: 150px;
+  }
+
+  #areaLogin input {
+    padding: 15px;
+  }
+
+  #areaLogin button {
+    height: 55px;
+  }
+
+  #img-bg-register img {
+    padding: 0px;
+  }
+  #img-background img{
+    display: none;
+  }
+}
+
+
 @media screen and (max-width: 550px) {
   #areaLogin {
     width: 90%;
