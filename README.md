@@ -84,6 +84,6 @@ Como podemos ver, no sistema já existe alguns alunos criados e você pode entra
 ### **PRONTOO!, agora você é um aluno** Seja bem vindo aluno novo!!
 
 ---
-## **observações:** *como o seu perfil é um perfil novo, as informações de notas, faltas e ocorrencias apareceram VAZIAS, para adicionar. Basta logar com o perfil de professor, buscar seu nome e sua turma e alterar notas, faltas e ocorrencias!!*
+## **observações:** *como o seu perfil é um perfil novo, as informações de notas, faltas e ocorrências apareceram VAZIAS, para adicionar. Basta logar com o perfil de professor, buscar seu nome e sua turma e alterar notas, faltas e ocorrencias!!*
 
 ---
